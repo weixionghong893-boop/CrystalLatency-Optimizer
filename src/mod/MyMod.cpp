@@ -51,7 +51,7 @@ bool ClangeMeMod::enable() {
         return true;
     }
 
-    self.getLogger().info("Config message: {}", mConfig.message);
+    self.getLogger().info("PvP config loaded successfully");
     return true;
 }
 
