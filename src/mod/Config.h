@@ -32,52 +32,54 @@ struct ModConfig {
 nlohmann::json makeDefaultConfigJson();
 nlohmann::json makeConfigSchemaJson();
 
-} // namespace clange_me
+} // namespace clange_menamespace pl::config {
 
-template <> struct pl::config::Schema<clange_me::ModConfig> {
+template <>
+struct Schema<clange_me::ModConfig> {
     static constexpr std::string_view title = "水晶與重生錨助手";
     static constexpr std::string_view description = "PvP 操作設定";
 
     static constexpr FieldSchema field(std::string_view name) {
         if (name == "version")
-            return {.title = "版本", .readOnly = true};
+            return {"版本", "", {}, {}, true};
 
         if (name == "enabled")
-            return {.title = "啟用模組"};
+            return {"啟用模組", "", {}, {}, false};
 
         if (name == "crystalEnabled")
-            return {.title = "啟用水晶連招"};
+            return {"啟用水晶連招", "", {}, {}, false};
 
         if (name == "crystalAutoAttack")
-            return {.title = "按住攻擊自動連打"};
+            return {"按住攻擊自動連打", "", {}, {}, false};
 
         if (name == "crystalCps")
-            return {.title = "水晶攻擊 CPS"};
+            return {"水晶攻擊 CPS", "", 1, 20, false};
 
         if (name == "crystalDelayMs")
-            return {.title = "水晶操作延遲"};
+            return {"水晶操作延遲", "", 0, 250, false};
 
         if (name == "anchorEnabled")
-            return {.title = "啟用重生錨連招"};
+            return {"啟用重生錨連招", "", {}, {}, false};
 
         if (name == "anchorAutoGlowstone")
-            return {.title = "自動切換螢石充能"};
+            return {"自動切換螢石充能", "", {}, {}, false};
 
         if (name == "anchorSwitchToTotem")
-            return {.title = "充能後切換圖騰"};
+            return {"充能後切換圖騰", "", {}, {}, false};
 
         if (name == "anchorAutoDetonate")
-            return {.title = "自動攻擊引爆"};
+            return {"自動攻擊引爆", "", {}, {}, false};
 
         if (name == "anchorDelayMs")
-            return {.title = "重生錨操作延遲"};
+            return {"重生錨操作延遲", "", 0, 250, false};
 
         if (name == "showButtons")
-            return {.title = "顯示操作按鈕"};
+            return {"顯示操作按鈕", "", {}, {}, false};
 
         if (name == "buttonScale")
-            return {.title = "按鈕大小"};
+            return {"按鈕大小", "", 0.5, 2.0, false};
 
         return {};
     }
 };
+
