@@ -83,4 +83,4 @@ struct Schema<clange_me::ModConfig> {
         return {};
     }
 };
-
+} // namespace pl::config
