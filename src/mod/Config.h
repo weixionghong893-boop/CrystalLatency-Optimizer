@@ -32,7 +32,8 @@ struct ModConfig {
 nlohmann::json makeDefaultConfigJson();
 nlohmann::json makeConfigSchemaJson();
 
-} // namespace clange_menamespace pl::config {
+} // namespace clange_me
+namespace pl::config {
 
 template <>
 struct Schema<clange_me::ModConfig> {
